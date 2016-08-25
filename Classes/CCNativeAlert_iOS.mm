@@ -25,7 +25,7 @@
 		
 		self.didDismiss(alertView.tag, type);
 	}
-	[self autorelease];
+	[self release];
 }
 
 @end
@@ -79,7 +79,6 @@ void NativeAlert::showWithCallback( std::string title, std::string message, std:
 		NativeAlertDelegate *nald = [[NativeAlertDelegate alloc] init]; // not autoreleased yet
 		nald.didDismiss = callback;
 		alert.delegate = nald;
-		[nald release];
 	}
 	
 	[alert show];
