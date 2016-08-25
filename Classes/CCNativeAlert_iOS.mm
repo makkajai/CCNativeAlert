@@ -79,9 +79,11 @@ void NativeAlert::showWithCallback( std::string title, std::string message, std:
 		NativeAlertDelegate *nald = [[NativeAlertDelegate alloc] init]; // not autoreleased yet
 		nald.didDismiss = callback;
 		alert.delegate = nald;
+		[nald release];
 	}
 	
 	[alert show];
+	[alert release];
 }
 
 void NativeAlert::alertDidDismiss( std::string alertID, int buttonIndex)
