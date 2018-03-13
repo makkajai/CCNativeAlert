@@ -25,6 +25,7 @@
 		
 		self.didDismiss(alertView.tag, type);
 	}
+	alertView.delegate = nil;
 	[self release];
 }
 
